@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Crawlerz - MAGUS Grafikonok</title>
+		<link rel="icon" type="image/ico" href="programdata/gfx/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="programdata/gfx/style.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		
+		<script src="programdata/external/jquery/jquery-1.11.3.min.js"></script>
+		<script src="programdata/external/jquery-ui/jquery-ui.min.js"></script>
+		<script src="programdata/external/canvasjs/canvasjs.min.js"></script>
+		<script src="programdata/external/datatables/media/js/jquery.dataTables.min.js"></script>
+		
+		<script src="programdata/js/targyak.js"></script>
+		<script src="programdata/js/kepzettsegek.js"></script>
+		<script src="programdata/js/kasztok.js"></script>
+		<script src="programdata/js/kaszttablazatok.js"></script>
+		<script src="programdata/js/dobaskalkulator.js"></script>
+		<script src="programdata/js/targytablazat.js"></script>
+		<script src="programdata/js/fegyvergrafikonok.js"></script>
+		<script src="programdata/js/njkgenerator.js"></script>
+			
+		<script src="programdata/js/main.js"></script>
+		
+		
+		<link href="programdata/external/jquery-ui/jquery-ui.css" rel="stylesheet">
+		<link href="programdata/external/datatables/media/css/jquery.dataTables.css" rel="stylesheet"> 
+		
+
+	</head>		
+	<body>		
+		<div id="wrapper">
+			<div id="ribbon">
+				<div id="menu">  
+					<div><img src="programdata/gfx/gemlogo_small.png" alt="G" /></div>
+					<div><a><b>MAGUS Grafikonok és táblázatok</b></a></div>
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+			
+			<div id="content">
+				
+					
+				<!-- Karakter -->
+				<div id="tabs">
+					<ul>
+						<li><a href="#tabs-1"><img src="programdata/gfx/dot.gif" title="Tárgy táblázat" alt="Tárgy Táblázat" class="icon ic_b_browse" /> Tárgy táblázat</a></li>
+						<li><a href="#tabs-2"><img src="programdata/gfx/dot.gif" title="Sebzés kalkulátor" alt="Sebzés kalkulátor" class="icon ic_s_status" /> Sebzés kalkulátor</a></li>
+						<li><a href="#tabs-3"><img src="programdata/gfx/dot.gif" title="Fegyverek összehasonlító grafikonja" alt="Fegyver grafikonok" class="icon ic_b_chart" /> Fegyver grafikonok</a></li>
+						<li><a href="#tabs-4"><img src="programdata/gfx/dot.gif" title="Kaszt táblázat" alt="Kaszt táblázat" class="icon ic_b_browse" /> Kaszt táblázat</a></li>
+						<li><a href="#tabs-5"><img src="programdata/gfx/dot.gif" title="Kasztok és képzettségek" alt="Kasztok és képzettségek" class="icon ic_b_browse" /> Kasztok és képzettségek</a></li>
+						<li><a href="#tabs-6"><img src="programdata/gfx/dot.gif" title="Képzettségek listája" alt="Kasztok és képzettségek" class="icon ic_b_browse" /> Képzettségek</a></li>
+						<li><a href="#tabs-7"><img src="programdata/gfx/dot.gif" title="NJK Generátor" alt="NJK Generátor" class="icon ic_b_usradd" /> NJK Generátor</a></li>
+					</ul>
+					
+					<!-- Karakterlap -->
+					<div id="tabs-1">
+						<table id="targytable">
+							<thead>
+								<th style="min-width:15em;">Név</th>
+								<th>Súly</th>
+								<th>Méret</th>
+								<th>Idő</th>
+								<th>STP</th>
+								<th>MGT</th>
+								<th>SFÉ</th>
+								<th>KÉ</th>
+								<th>TÉ</th>
+								<th>VÉ</th>
+								<th>CÉ</th>
+								<th>SP</th>
+								<th>Átütés</th>
+								<th>Min</th>
+								<th>Max</th>
+								<th>Átlag</th>
+								<th class="tooltip" title="Körönkénti átlagos sebzés 0 SFÉ esetén">@0SFÉ</th>
+								<th class="tooltip" title="Körönkénti átlagos sebzés 3 SFÉ esetén">@3SFÉ</th>
+								<th class="tooltip" title="Körönkénti átlagos sebzés 6 SFÉ esetén">@6SFÉ</th>
+								<th class="tooltip" title="A tárgy által adott harcértékek (és MGT levonások) össz-KAP értéke">KAP</th>
+							</thead>
+						</table>
+						<!--<textarea id="buhi"></textarea>-->
+					</div>
+					
+					<div id="tabs-2">
+						<div>
+							<select id="sk_tpkselect">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
+							tám/kör × 
+							<select id="sk_nselect">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+							</select>
+							<b>k</b> 
+							<select id="sk_dselect">
+								<option value="6">6</option>
+								<option value="10">10</option>
+							</select>
+							<b>+</b> 
+							<input id="sk_nbonus" type="text" style="width: 2em;" value="0" />
+							átütés?
+							<select id="sk_atselect">
+								<option value="0">nem</option>
+								<option value="1">igen</option>
+							</select>
+							<b>név:</b> 
+							<input id="sk_name" type="text" style="width: 7em;" value="kockadobás" />
+							<a class="button" id="sk_addbutton"><img src="programdata/gfx/dot.gif" title="Kezdőoldal" alt="" class="icon ic_b_snewtbl" /> Hozzáadás</a>
+						</div>
+						<div>
+							<table id="sk_dobasok">
+								<tr>
+									<th style="width: 10em;">Név</th>
+									<th style="width: 10em;">Dobás</th>
+									<th>Min</th>
+									<th>Max</th>
+									<th>Átlag</th>
+									<th>Átütés?</th>
+									<th>Törlés</th>
+								</tr>
+							</table>
+						</div>
+						<div>
+							<a class="button" id="sk_graphbutton"><img src="programdata/gfx/dot.gif" title="Kezdőoldal" alt="" class="icon ic_b_chart" /> Grafikon rajzolása</a>
+						</div>
+						<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+						<div id="chartContainer2" style="height: 300px; width: 100%;"></div>	
+					</div>
+					
+					<div id="tabs-3">
+						<div id="chartContainer3" style="height: 800px; width: 100%;"></div>
+					</div>
+					<div id="tabs-4">
+						<table id="kaszttable">
+							<thead>
+								<th style="min-width:25em;">Kaszt</th>
+								<th class="tooltip" title="Ez mutatja, hogy az adott kaszt felvétele mennyi KAP-ba kerül Tapasztalati Szintenként">KAP/TSZ</th>
+								<th style="min-width:10em;" class="tooltip" title="Az 1. TSZ-en megkapott képzettségek összesített KAP értéke, 4. fokú oktatás általi csökkenéseket beleszámolva.">Képz. össz KAP</th>
+								<th style="min-width:15em;" class="tooltip" title="Az 1. TSZ-en megkapott képzettségek összesített tanulási ideje kerekítve hónapra.">Képz. össz idő (hónap)</th>
+								<th style="min-width:10em;" class="tooltip" title="Ez mutatja, hogy a kezdéskor kapott képzettségek KAP értéke hanyadik TSZ-ig ellensúlyozzák a kaszt szintenkénti KAP költségét. Minél nagyobb ez a szám annál jobb.">KAP hat. szint</th>
+							</thead>
+						</table>
+					</div>
+					<div id="tabs-5">
+						<div id="kasztaccordion"></div>
+					</div>
+					<div id="tabs-6">
+						<table id="kepzettsegtable">
+							<thead>
+								<th style="min-width:25em;">Képzettség</th>
+								<th>Típus</th>
+								<th>Nehéz.</th>
+								<th>1. fok</th>
+								<th>2. fok</th>
+								<th>3. fok</th>
+								<th>4. fok</th>
+								<th>5. fok</th>
+								<th style="min-width:25em;">Tul. követelmény</th>
+							</thead>
+						</table>
+					</div>
+					<div id="tabs-7">
+						<div>1. Add meg a JK-k harcértékeit. A program csak azokkal fog számolni ahol kipipálod.</div>
+						<table id="jkstatinput">
+							<thead>
+								<th>?</th>
+								<th>FP</th>
+								<th>KÉ</th>
+								<th>TÉ</th>
+								<th>VÉ</th>
+								<th>SP</th>
+							</thead>
+						</table>
+						<div>2. Milyen nehézségűre szeretnéd csinálni az NJK-kat?</div>
+						<div>
+							<sub>bébigoblin</sub><input type="range" id="njknehezseg" min="0" max="100" value="50" /><sub>őssárkány</sub> 
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End of Content -->
+		</div>
+		<!-- End of Wrapper -->
+	</body>
+<!--
+GEM MAGUS Grafikonok
+(c)2016 Sándor Preszter - https://opensource.org/licenses/MIT 
+-->	
+</html>

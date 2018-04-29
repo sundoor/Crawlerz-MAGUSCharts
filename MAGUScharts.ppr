@@ -1,0 +1,81 @@
+[Config]
+Compilator.SaveAll=0
+Compilator.Capture=0
+Compilator.HideOutput=0
+Compilator.LogType=0
+DefaultCPIndex=0
+LogtoEnd=1
+DontOpen=0
+AbsolutePath=0
+FileFormat=0
+ProjectFilesOnly=0
+[Project tree]
+MAGUScharts
+	+root
+		+programdata
+			-external
+			+gfx
+				programdata\gfx\style.css
+			+js
+				programdata\js\main.js
+				programdata\js\dobaskalkulator.js
+				programdata\js\targytablazat.js
+				programdata\js\targyak.js
+				programdata\js\fegyvergrafikonok.js
+				programdata\js\kepzettsegek.js
+				programdata\js\kasztok.js
+				programdata\js\kaszttablazatok.js
+				programdata\js\njkgenerator.js
+		index.html
+[Open project files]
+0=index.html
+1=programdata\js\main.js
+2=programdata\js\dobaskalkulator.js
+3=programdata\js\targytablazat.js
+4=programdata\js\targyak.js
+5=programdata\gfx\style.css
+6=programdata\external\datatables\media\css\jquery.dataTables.css
+7=programdata\js\fegyvergrafikonok.js
+8=programdata\js\kepzettsegek.js
+9=programdata\js\kasztok.js
+10=programdata\js\kaszttablazatok.js
+11=programdata\js\njkgenerator.js
+[Selected Project Files]
+Main=
+Selected=programdata\js\njkgenerator.js
+[index.html]
+TopLine=100
+Caret=111,186
+[programdata\js\main.js]
+TopLine=1
+Caret=1,42
+[programdata\js\dobaskalkulator.js]
+TopLine=138
+Caret=47,171
+[programdata\js\targytablazat.js]
+TopLine=19
+Caret=124,70
+[programdata\js\targyak.js]
+TopLine=1
+Caret=129,17
+[programdata\gfx\style.css]
+TopLine=257
+Caret=10,283
+[programdata\external\datatables\media\css\jquery.dataTables.css]
+TopLine=1
+Caret=1,4
+[programdata\js\fegyvergrafikonok.js]
+TopLine=23
+Caret=25,56
+[programdata\js\kepzettsegek.js]
+TopLine=1
+Caret=1,1
+[programdata\js\kasztok.js]
+TopLine=1
+Caret=1,1
+[programdata\js\kaszttablazatok.js]
+TopLine=12
+Caret=75,12
+[programdata\js\njkgenerator.js]
+TopLine=1
+Caret=41,36
